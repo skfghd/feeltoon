@@ -25,3 +25,11 @@ firebase-debug.log
 .DS_Store
 *.log
 .vscode/
+
+# API 키 보호용
+.env
+.env.*
+*.local
+secrets.js
+config.js
+firebase-config.js

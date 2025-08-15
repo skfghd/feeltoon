@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 개인맞춤 동화책 생성 플랫폼 | 감정별 맞춤 동화 제작</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="AI로 개인맞춤 동화책을 만들어보세요. 감정과 취향에 맞는 특별한 동화를 생성하고, 아름다운 일러스트와 함께 PDF로 다운로드할 수 있습니다.">
+  <meta name="keywords" content="AI 동화, 개인맞춤 동화책, 감정 동화, 아동 도서, 창작 동화, AI 스토리텔링">
+  <meta name="author" content="AI 동화책 플랫폼">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="AI 개인맞춤 동화책 생성 플랫폼">
+  <meta property="og:description" content="감정과 취향에 맞는 특별한 동화를 AI로 생성하고, 아름다운 일러스트와 함께 나만의 동화책을 만들어보세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain.web.app">
+  <meta property="og:image" content="https://your-domain.web.app/og-image.jpg">
+  <meta property="og:locale" content="ko_KR">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI 개인맞춤 동화책 생성 플랫폼">
+  <meta name="twitter:description" content="감정과 취향에 맞는 특별한 동화를 AI로 생성하고, 아름다운 일러스트와 함께 나만의 동화책을 만들어보세요.">
+  <meta name="twitter:image" content="https://your-domain.web.app/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://your-domain.web.app">
+  
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+          crossorigin="anonymous"></script>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#6B73FF">
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  
+  <!-- CSS Reset and Base Styles -->
+  <style>
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      -webkit-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+    
+    #root {
+      min-height: 100vh;
+    }
+    
+    /* Loading Spinner */
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top: 3px solid white;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .loading-text {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    
+    .loading-subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+      max-width: 300px;
+    }
+    
+    /* Error State */
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .error-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    
+    .error-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .error-message {
+      font-size: 16px;
+      opacity: 0.9;
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+    
+    .error-button {
+      background: white;
+      color: #667eea;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .error-button:hover {
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">AI 동화책 플랫폼 로딩 중...</div>
+      <div class="loading-subtitle">감정과 취향에 맞는 특별한 동화를 준비하고 있어요</div>
+    </div>
+  </div>
+  
+  <!-- Error Fallback -->
+  <script>
+    // Error handling for JavaScript loading failures
+    window.addEventListener('error', function(e) {
+      const root = document.getElementById('root');
+      if (root && e.filename && e.filename.includes('.js')) {
+        root.innerHTML = `
+          <div class="error-container">
+            <div class="error-icon">⚠️</div>
+            <div class="error-title">앱을 불러오는 중 문제가 발생했습니다</div>
+            <div class="error-message">페이지를 새로고침하거나 잠시 후 다시 시도해주세요.</div>
+            <button class="error-button" onclick="window.location.reload()">페이지 새로고침</button>
+          </div>
+        `;
+      }
+    });
+    
+    // Timeout fallback
+    setTimeout(function() {
+      const loadingContainer = document.querySelector('.loading-container');
+      if (loadingContainer && loadingContainer.style.display !== 'none') {
+        const root = document.getElementById('root');
+        root.innerHTML = `
+          <div class="error-container">
+            <div class="error-icon">⏰</div>
+            <div class="error-title">로딩 시간이 너무 오래 걸리고 있어요</div>
+            <div class="error-message">네트워크 연결을 확인하고 페이지를 새로고침해주세요.</div>
+            <button class="error-button" onclick="window.location.reload()">페이지 새로고침</button>
+          </div>
+        `;
+      }
+    }, 15000);
+  </script>
+  
+  <!-- Module Script -->
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

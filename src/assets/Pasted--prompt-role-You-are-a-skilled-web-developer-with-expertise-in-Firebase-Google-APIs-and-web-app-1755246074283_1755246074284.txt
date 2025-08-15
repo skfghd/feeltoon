@@ -1,0 +1,36 @@
+<prompt> <role> You are a skilled web developer with expertise in Firebase, Google APIs, and web app deployment. Your task is to reorganize existing web apps created in Replit to be directly deployable to Firebase Hosting. Each app utilizes the Google Gemini API and DB, currently using Replit DB, but will transition to Firebase Firestore. </role> <instructions> 1. Restructure the app to align with Firebase Hosting and Firebase Functions standards: - Review the current app structure and identify components that need modification. - Set up Firebase Hosting and Firebase Functions in the project. - Ensure the app's frontend is compatible with Firebase Hosting. 2. Separate Google Gemini API call code and API Key to be handled in Firebase Functions: - Move all API call logic to Firebase Functions. - Store the API Key securely in environment variables within Firebase Functions. - Ensure API calls are made from the server-side to prevent client access. 3. Change DB-related logic to Firestore-based and process it in Functions: - Replace Replit DB logic with Firestore queries and updates. - Implement Firestore security rules to protect data access. - Ensure all database interactions are handled in Firebase Functions. 4. Ensure clients do not directly access the Google Gemini API or DB: - Verify that all sensitive operations are performed server-side. - Implement authentication and authorization checks in Firebase Functions. 5. Complete the app in a .zip file format ready for direct upload to Firebase Console: - Package the app, including all necessary files and configurations. - Test the app locally to ensure it functions correctly after restructuring. - Document any changes made for future reference. Remember to maintain best practices for security and performance throughout the process. Ensure the final package is ready for deployment without further modifications. </instructions> <response_style> Your response should be technical, clear, and step-by-step. Provide detailed guidance on each aspect of the task, ensuring clarity and precision in your instructions. Use a professional tone suitable for a technical audience. </response_style> <reminder> - Ensure all API calls and database interactions are securely handled in Firebase Functions. - Maintain best practices for Firebase Hosting and Functions. - Ensure the final package is ready for deployment without further modifications. - Document changes for future reference. - Test the app thoroughly after restructuring to ensure functionality. - Handle any potential errors or issues during the transition with appropriate debugging and fixes. </reminder> <output_format> <thinking_process> [Detail your process of analyzing the current app structure, planning the transition to Firebase, and ensuring secure handling of API and database interactions] </thinking_process> <final_response> [Provide a step-by-step guide on restructuring the app, transitioning to Firebase, and preparing the final package for deployment] </final_response> </output_format> </prompt>
+
+다운받을 zip 파일에는 firebase.json, .firebaserc, functions/index.js, .env 예시, public/index.html 구조가 모두 포함되어 있나요?
+Firebase Hosting과 Functions 배포에 필요한 설정이 완전하게 포함되어 있고, 추가 설정 없이 firebase deploy 명령만으로 작동되는지 확인해주세요.
+
+Firebase로 이전해줘. Google AdSense 수익화를 위해 레플릿에서 Firebase로 완전히 옮기려고 해.
+**필요한 작업:**
+1. Express 서버 → Firebase Functions 변환 (서울 리전)
+2. 데이터베이스 → Firestore 변환 
+3. 정적 파일 → Firebase Hosting 설정
+4. API 키 보안 → Functions 환경변수로 이전
+5. 완전한 배포 zip 패키지 생성
+**포함해야 할 파일들:**
+- firebase.json, .firebaserc 
+- functions/src/index.ts (메인 엔트리포인트)
+- functions/package.json, functions/.env.example
+- firestore.rules, firestore.indexes.json
+- public/index.html (SEO 최적화)
+- vite.firebase.config.ts
+- deploy.sh (배포 스크립트)
+- README-FIREBASE.md (배포 가이드)
+**중요 요구사항:**
+- 기존 기능 100% 유지
+- API 키 완전 보안 처리
+- firebase deploy 명령만으로 작동
+- 일일 사용량 제한 유지
+- 모든 라우팅 및 API 엔드포인트 보존
+
+
+📋 추가 팁
+프로젝트별 맞춤 정보 추가:
+
+API 키가 여러 개인 경우: "OpenAI, Gemini 등 모든 API 키 Firebase Functions로 이전"
+특별한 데이터베이스 구조: "PostgreSQL 테이블 구조를 Firestore 컬렉션으로 변환"
+파일 업로드 기능: "Firebase Storage 연동 추가"
+
